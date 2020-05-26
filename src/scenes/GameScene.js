@@ -52,7 +52,7 @@ export default class GameScene extends Phaser.Scene {
   collectStar(player, star) {
     star.disableBody(true, true);
 
-    this.counter = this.counter + 10;
+    this.counter += 10;
     this.setCounter(this.counter)
 
 

@@ -23,8 +23,10 @@ const Counter = styled.span`
 `
 
 const App = () => {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+
   game.scene = [GameScene.bind(null, count, setCount)]
+  
   return (
     <Main>
       <Counter>{`Score: ${count}`}</Counter>

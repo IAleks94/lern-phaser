@@ -18,9 +18,8 @@ const Counter = styled.span`
   position: absolute;
   font-size: 24px;
   top: 16px;
-  left: 16px;
-  color: red;
-  
+  left: calc(50vw - 380px);
+  color: black;
 `
 
 const App = () => {

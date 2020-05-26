@@ -1,6 +1,5 @@
 import Phaser from 'phaser';
 
-import ScoreLabel from '../ui/ScoreLabel'
 import BombSpawner from './BombSpawner'
 
 const GROUND_KEY = 'ground';
@@ -37,8 +36,6 @@ export default class GameScene extends Phaser.Scene {
     this.player = this.createPlayer();
     this.stars = this.createStars();
 
-    this.scoreLabel = this.createScoreLabel(this.counter, this.setCounter);
-
     this.bombSpawner = new BombSpawner(this, BOMB_KEY);
     const bombGroup = this.bombSpawner.group;
 
@@ -55,7 +52,9 @@ export default class GameScene extends Phaser.Scene {
   collectStar(player, star) {
     star.disableBody(true, true);
 
-    this.scoreLabel.add(10);
+    this.counter = this.counter + 10;
+    this.setCounter(this.counter)
+
 
     if (this.stars.countActive(true) === 0) {
       this.stars.children.iterate((child) => {
@@ -63,14 +62,6 @@ export default class GameScene extends Phaser.Scene {
       })
       this.bombSpawner.spawn(player.x)
     }
-  }
-
-  createScoreLabel(score, setCounter) {
-    const label = new ScoreLabel(this, score, setCounter);
-
-    this.add.existing(label);
-    
-    return label;
   }
 
   createStars() {

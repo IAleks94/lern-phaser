@@ -71,10 +71,6 @@ export default class Menu extends Phaser.GameObjects.Container {
   // пересоздаем пункты меню
   remap(units) {
     this.clear();
-    // for (var i = 0; i < units.length; i++) {
-    //   var unit = units[i];
-    //   this.addMenuItem(unit.type);
-    // }
     units.forEach((item) => item.setMenuItem(this.addMenuItem(item.type)));
     this.menuItemIndex = 0;
   }

@@ -2,7 +2,6 @@ import Phaser from 'phaser'
 
 import BootScene  from './scenes/BootScene';
 
-
 const config = {
 	type: Phaser.AUTO,
 	width: 320,
